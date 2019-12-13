@@ -9,7 +9,6 @@ import org.junit.runner.notification.Failure;
  *
  * @author wandoupeas
  * @version 1.0.0
- * @date 2019-12-13 09:56
  * @since 2019-12-13 09:56
  */
 public class TestRunner {

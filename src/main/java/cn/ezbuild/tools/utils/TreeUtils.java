@@ -2,7 +2,9 @@ package cn.ezbuild.tools.utils;
 
 
 import cn.hutool.core.util.ReflectUtil;
+import cn.hutool.core.util.StrUtil;
 import lombok.SneakyThrows;
+import lombok.experimental.UtilityClass;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -17,11 +19,47 @@ import java.util.List;
  * @author wandoupeas
  * @since 0.0.1
  */
-public class TreeUtils<T> {
-    private List<T> menuList;
+@UtilityClass
+public class TreeUtils {
 
-    public TreeUtils(List<T> menuList) {
-        this.menuList = menuList;
+    /**
+     * 功能描述
+     * <p>
+     * 建立树形结构
+     * 默认 list 内的属性关系为
+     * Integer id 主键
+     * Integer parentId 关联父级id
+     * java.util.List<T> children 子集
+     * 起始节点为父级id为0
+     * </p>
+     *
+     * @param menuList 需要格式化的list
+     * @return java.util.List
+     * @author wandoupeas
+     * @since 0.0.1
+     */
+    public static <T>List<T> buildTree(List<T> menuList) {
+        return buildTree(menuList, 0, "id", "parentId", "children");
+    }
+
+    /**
+     * 功能描述
+     * <p>
+     * 建立树形结构
+     * 默认 list 内的属性关系为
+     * Integer id 主键
+     * Integer parentId 关联父级id
+     * java.util.List<T> children 子集
+     * </p>
+     *
+     * @param menuList 需要格式化的list
+     * @param rootId 顶级id
+     * @return java.util.List
+     * @author wandoupeas
+     * @since 0.0.1
+     */
+    public static <T>List<T> buildTree(List<T> menuList, Integer rootId) {
+        return buildTree(menuList, rootId, "id", "parentId", "children");
     }
 
     /**
@@ -30,15 +68,19 @@ public class TreeUtils<T> {
      * 建立树形结构
      * </p>
      *
+     * @param menuList 需要格式化的list
+     * @param rootId 顶级id 默认 0
+     * @param idFieldName 主键字段名 默认 id
+     * @param parentIdFieldName 父级id字段名 默认 parentId
+     * @param childFieldName 子集合字段名 默认 children
      * @return java.util.List
      * @author wandoupeas
-     * @date 2019-12-12
      * @since 0.0.1
      */
-    public List<T> buildTree() {
-        List<T> treeMenus = new ArrayList<T>();
-        for (T menuNode : getRootNode()) {
-            buildChildTree(menuNode);
+    public static <T>List<T> buildTree(List<T> menuList, Integer rootId, String idFieldName, String parentIdFieldName, String childFieldName) {
+        List<T> treeMenus = new ArrayList<>();
+        for (T menuNode : getRootNode(menuList, parentIdFieldName, rootId)) {
+            buildChildTree(menuNode, menuList, idFieldName, parentIdFieldName, childFieldName);
             treeMenus.add(menuNode);
         }
         return treeMenus;
@@ -51,28 +93,29 @@ public class TreeUtils<T> {
      * </p>
      *
      * @param pNode 父节点
+     * @param menuList 需要格式化的list
+     * @param idFieldName 主键字段名
+     * @param parentIdFieldName 父级id字段名
+     * @param childFieldName 子集合字段名
      * @return T
      * @author wandoupeas
-     * @date 2019-12-12
      * @since 0.0.1
      */
     @SneakyThrows
-    private T buildChildTree(T pNode) {
-        List<T> childMenus = new ArrayList<T>();
+    private static <T>T buildChildTree(T pNode, List<T> menuList, String idFieldName, String parentIdFieldName, String childFieldName) {
+        List<T> childMenus = new ArrayList<>();
         Class<?> pNodeClass = pNode.getClass();
 
-        Integer id = (Integer) ReflectUtil.getFieldValue(pNode, "id");
-        Integer pId = (Integer) ReflectUtil.getFieldValue(pNode, "pId");
+        Integer id = (Integer) ReflectUtil.getFieldValue(pNode, idFieldName);
 
         for (T menuNode : menuList) {
-            Integer parentId = (Integer) ReflectUtil.getFieldValue(menuNode, "parentId");
+            Integer parentId = (Integer) ReflectUtil.getFieldValue(menuNode, parentIdFieldName);
             if (parentId != null && parentId.equals(id)) {
-                childMenus.add(buildChildTree(menuNode));
+                childMenus.add(buildChildTree(menuNode, menuList, idFieldName, parentIdFieldName, childFieldName));
             }
         }
-        Method method = ReflectUtil.getMethodByName(pNodeClass, "setChildren");
+        Method method = ReflectUtil.getMethodByName(pNodeClass, "set" + StrUtil.upperFirst(childFieldName));
         method.invoke(pNode, childMenus);
-//        ReflectUtil.setFieldValue(pNodeClass, "children", childMenus);
         return pNode;
     }
 
@@ -82,16 +125,18 @@ public class TreeUtils<T> {
      * 获取根节点
      * </p>
      *
+     * @param menuList 需格式化的list
+     * @param parentIdFieldName 父级id字段
+     * @param rootId 设置顶级id
      * @return java.util.List
      * @author wandoupeas
-     * @date 2019-12-12
      * @since 0.0.1
      */
-    private List<T> getRootNode() {
-        List<T> rootMenuLists = new ArrayList<T>();
+    private static <T>List<T> getRootNode(List<T> menuList, String parentIdFieldName, Integer rootId) {
+        List<T> rootMenuLists = new ArrayList<>();
         for (T menuNode : menuList) {
-            Integer parentId = (Integer) ReflectUtil.getFieldValue(menuNode.getClass(), "parentId");
-            if (parentId == null || parentId.equals(0)) {
+            Integer parentId = (Integer) ReflectUtil.getFieldValue(menuNode, parentIdFieldName);
+            if (rootId.equals(parentId)) {
                 rootMenuLists.add(menuNode);
             }
         }
