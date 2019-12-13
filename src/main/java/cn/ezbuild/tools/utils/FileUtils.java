@@ -33,7 +33,6 @@ public class FileUtils {
      * @param srcFiles 文件路径
      * @param zipFilePath 压缩路径
      * @param zipFileName 压缩文件名
-     * @author wandoupeas
      * @since 0.0.1
      */
     public static void saveZipFiles(List<String> srcFiles, String zipFilePath, String zipFileName) {
@@ -103,7 +102,6 @@ public class FileUtils {
      * @param response http请求response
      * @param srcFiles 需要压缩的文件集合
      * @param zipFileName 压缩文件名
-     * @author wandoupeas
      * @since 0.0.1
      */
     public static void downloadZipFiles(HttpServletResponse response, List<String> srcFiles, String zipFileName) {
@@ -132,7 +130,6 @@ public class FileUtils {
      * @param file 需要压缩的文件
      * @param parentPath 父级路径
      * @param zos 输出流
-     * @author wandoupeas
      * @since 0.0.1
      */
     private static void zipFile(File file, String parentPath, ZipOutputStream zos) {
@@ -215,7 +212,6 @@ public class FileUtils {
      *
      * @param response response
      * @param fileName 文件名
-     * @author wandoupeas
      * @since 0.0.1
      */
     private void downloadResponse(HttpServletResponse response, String fileName) {

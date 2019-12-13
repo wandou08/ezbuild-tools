@@ -35,7 +35,6 @@ public class TreeUtils {
      *
      * @param menuList 需要格式化的list
      * @return java.util.List
-     * @author wandoupeas
      * @since 0.0.1
      */
     public static <T>List<T> buildTree(List<T> menuList) {
@@ -55,7 +54,6 @@ public class TreeUtils {
      * @param menuList 需要格式化的list
      * @param rootId 顶级id
      * @return java.util.List
-     * @author wandoupeas
      * @since 0.0.1
      */
     public static <T>List<T> buildTree(List<T> menuList, Integer rootId) {
@@ -74,7 +72,6 @@ public class TreeUtils {
      * @param parentIdFieldName 父级id字段名 默认 parentId
      * @param childFieldName 子集合字段名 默认 children
      * @return java.util.List
-     * @author wandoupeas
      * @since 0.0.1
      */
     public static <T>List<T> buildTree(List<T> menuList, Integer rootId, String idFieldName, String parentIdFieldName, String childFieldName) {
@@ -98,7 +95,6 @@ public class TreeUtils {
      * @param parentIdFieldName 父级id字段名
      * @param childFieldName 子集合字段名
      * @return T
-     * @author wandoupeas
      * @since 0.0.1
      */
     @SneakyThrows
@@ -129,7 +125,6 @@ public class TreeUtils {
      * @param parentIdFieldName 父级id字段
      * @param rootId 设置顶级id
      * @return java.util.List
-     * @author wandoupeas
      * @since 0.0.1
      */
     private static <T>List<T> getRootNode(List<T> menuList, String parentIdFieldName, Integer rootId) {
