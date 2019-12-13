@@ -6,6 +6,7 @@ import lombok.experimental.UtilityClass;
 /**
  * 枚举工具类
  * @author wandoupeas
+ * @since 0.0.1
  */
 @UtilityClass
 public class EnumUtils {

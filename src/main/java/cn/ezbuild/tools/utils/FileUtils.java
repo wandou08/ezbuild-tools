@@ -20,13 +20,21 @@ import java.util.zip.ZipOutputStream;
  * </p>
  *
  * @author wandoupeas
- * @date 2019-09-26 0026
- * @since 2019-09-26 0026
+ * @since 0.0.1
  */
 @UtilityClass
 public class FileUtils {
     /**
-     * 把文件打成压缩包并保存在本地硬盘
+     * 功能描述
+     * <p>
+     *    把文件打成压缩包并保存在本地硬盘
+     * </p>
+     *
+     * @param srcFiles 文件路径
+     * @param zipFilePath 压缩路径
+     * @param zipFileName 压缩文件名
+     * @author wandoupeas
+     * @since 0.0.1
      */
     public static void saveZipFiles(List<String> srcFiles, String zipFilePath, String zipFileName) {
         try {
@@ -58,8 +66,7 @@ public class FileUtils {
      * @param path 压缩路径
      * @param zipFileName 压缩文件名
      * @author wandoupeas
-     * @date 2019-09-26 0026
-     * @since 2019-09-26 0026
+     * @since 0.0.1
      */
     public static void downloadPath(HttpServletResponse response, String path, String zipFileName) {
         // 设置读取数据缓存大小
@@ -97,8 +104,7 @@ public class FileUtils {
      * @param srcFiles 需要压缩的文件集合
      * @param zipFileName 压缩文件名
      * @author wandoupeas
-     * @date 2019-09-26 0026
-     * @since 2019-09-26 0026
+     * @since 0.0.1
      */
     public static void downloadZipFiles(HttpServletResponse response, List<String> srcFiles, String zipFileName) {
         try {
@@ -118,7 +124,16 @@ public class FileUtils {
     }
 
     /**
-     * 压缩文件
+     * 功能描述
+     * <p>
+     *    压缩文件
+     * </p>
+     *
+     * @param file 需要压缩的文件
+     * @param parentPath 父级路径
+     * @param zos 输出流
+     * @author wandoupeas
+     * @since 0.0.1
      */
     private static void zipFile(File file, String parentPath, ZipOutputStream zos) {
         // 设置读取数据缓存大小
@@ -158,15 +173,6 @@ public class FileUtils {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        finally {
-            // if (null != zos) {
-            //   try {
-            //     zos.close();
-            //   } catch (IOException e) {
-            //     e.printStackTrace();
-            //   }
-            // }
-        }
     }
 
     /**
@@ -174,6 +180,7 @@ public class FileUtils {
      *
      * @param path 文件夹完整绝对路径
      * @return boolean
+     * @since 0.0.1
      */
     public static boolean delAllFile(String path) {
         // boolean flag = false;
@@ -209,8 +216,7 @@ public class FileUtils {
      * @param response response
      * @param fileName 文件名
      * @author wandoupeas
-     * @date 2019-12-10 0010
-     * @since 2019-12-10 0010
+     * @since 0.0.1
      */
     private void downloadResponse(HttpServletResponse response, String fileName) {
         response.reset();

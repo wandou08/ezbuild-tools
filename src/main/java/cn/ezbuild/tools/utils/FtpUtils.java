@@ -17,8 +17,7 @@ import java.util.Vector;
 /**
  * FTP工具
  * @author wandoupeas
- * @date 2019-12-12 20:52:13
- * @since 2019-12-12 20:52:13
+ * @since 0.0.1
  * @version 0.0.1
  */
 public class FtpUtils {

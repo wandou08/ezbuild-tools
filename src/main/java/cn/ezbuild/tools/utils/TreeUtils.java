@@ -9,10 +9,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 树结构工具类
+ * 功能描述
+ * <p>
+ *    树结构工具类
+ * </p>
+ *
+ * @author wandoupeas
+ * @since 0.0.1
  */
 public class TreeUtils<T> {
-    private List<T> menuList = new ArrayList<T>();
+    private List<T> menuList;
 
     public TreeUtils(List<T> menuList) {
         this.menuList = menuList;
@@ -24,10 +30,10 @@ public class TreeUtils<T> {
      * 建立树形结构
      * </p>
      *
-     * @return java.util.List<T>
+     * @return java.util.List
      * @author wandoupeas
-     * @date 2019-12-12 0012
-     * @since 2019-12-12 0012
+     * @date 2019-12-12
+     * @since 0.0.1
      */
     public List<T> buildTree() {
         List<T> treeMenus = new ArrayList<T>();
@@ -47,8 +53,8 @@ public class TreeUtils<T> {
      * @param pNode 父节点
      * @return T
      * @author wandoupeas
-     * @date 2019-12-12 0012
-     * @since 2019-12-12 0012
+     * @date 2019-12-12
+     * @since 0.0.1
      */
     @SneakyThrows
     private T buildChildTree(T pNode) {
@@ -76,10 +82,10 @@ public class TreeUtils<T> {
      * 获取根节点
      * </p>
      *
-     * @return java.util.List<T>
+     * @return java.util.List
      * @author wandoupeas
-     * @date 2019-12-12 0012
-     * @since 2019-12-12 0012
+     * @date 2019-12-12
+     * @since 0.0.1
      */
     private List<T> getRootNode() {
         List<T> rootMenuLists = new ArrayList<T>();
