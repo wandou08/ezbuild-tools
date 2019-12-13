@@ -6,7 +6,6 @@ import com.jcraft.jsch.*;
 import com.jcraft.jsch.Channel;
 import lombok.Cleanup;
 import lombok.SneakyThrows;
-import lombok.extern.log4j.Log4j2;
 
 import java.io.File;
 import java.io.IOException;
@@ -22,7 +21,6 @@ import java.util.Vector;
  * @since 2019-12-12 20:52:13
  * @version 0.0.1
  */
-@Log4j2
 public class FtpUtils {
     private ChannelSftp sftp = null;
     private Channel channel = null;

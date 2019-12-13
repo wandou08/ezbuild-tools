@@ -3,18 +3,16 @@ package cn.ezbuild.tools;
 import cn.ezbuild.tools.entity.Menu;
 import cn.ezbuild.tools.utils.TreeUtils;
 import cn.hutool.json.JSONUtil;
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ContextConfiguration;
+import org.junit.Test;
+
 
 import java.util.ArrayList;
 import java.util.List;
 
-@ContextConfiguration
-class ToolsApplicationTests {
+public class ToolsTests {
 
     @Test
-    void contextLoads() {
+    public void test() {
         List<Menu> menuList = new ArrayList<>();
         menuList.add(Menu.builder().id(1).parentId(0).name("1").build());
         menuList.add(Menu.builder().id(2).parentId(0).name("2").build());
