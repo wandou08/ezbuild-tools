@@ -6,6 +6,7 @@
     <groupId>cn.ezbuild</groupId>
     <artifactId>tools</artifactId>
     <version>0.0.1-RELEASE</version>
+    <url>https://github.com/wandou08/tools</url>
     <name>tools</name>
     <description>Java tools for every developer</description>
 
