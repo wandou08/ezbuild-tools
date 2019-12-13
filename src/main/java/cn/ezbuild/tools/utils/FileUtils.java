@@ -64,7 +64,6 @@ public class FileUtils {
      * @param response http请求response
      * @param path 压缩路径
      * @param zipFileName 压缩文件名
-     * @author wandoupeas
      * @since 0.0.1
      */
     public static void downloadPath(HttpServletResponse response, String path, String zipFileName) {
