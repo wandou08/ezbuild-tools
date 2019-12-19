@@ -5,7 +5,7 @@
 
     <groupId>cn.ezbuild</groupId>
     <artifactId>tools</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.2-SNAPSHOT</version>
     <name>${project.artifactId}</name>
     <description>Java tools for every developer</description>
     <url>https://github.com/wandou08/tools</url>
@@ -25,6 +25,7 @@
         <jsch.version>0.1.55</jsch.version>
         <junit.version>4.12</junit.version>
         <lombok.version>1.18.10</lombok.version>
+        <scm.trunk.url>https://github.com/wandou08/tools.git</scm.trunk.url>
     </properties>
 
     <dependencies>
@@ -40,12 +41,6 @@
             <artifactId>hutool-all</artifactId>
             <version>${hutool.version}</version>
         </dependency>
-
-<!--        <dependency>-->
-<!--            <groupId>com.alibaba</groupId>-->
-<!--            <artifactId>fastjson</artifactId>-->
-<!--            <version>${fastjson.version}</version>-->
-<!--        </dependency>-->
 
         <!-- jsch -->
         <dependency>
@@ -102,11 +97,14 @@
             <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
         </license>
     </licenses>
+
     <scm>
-        <connection>scm:git:https://github.com/wandou08/tools.git</connection>
-        <developerConnection>scm:git:https://github.com/wandou08/tools.git</developerConnection>
-        <url>git:https://github.com/wandou08/tools.git</url>
+        <connection>scm:git:${scm.trunk.url}</connection>
+        <developerConnection>scm:git:${scm.trunk.url}</developerConnection>
+        <url>git:${scm.trunk.url}</url>
+        <tag>HEAD</tag>
     </scm>
+
     <developers>
         <developer>
             <name>wandoupeas</name>
@@ -199,7 +197,12 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-release-plugin</artifactId>
-                        <version>${maven-release-plugin.version}</version>
+                        <configuration>
+                            <autoVersionSubmodules>true</autoVersionSubmodules>
+                            <tagNameFormat>v@{project.version}</tagNameFormat>
+                            <generateReleasePoms>false</generateReleasePoms>
+                            <arguments>-DskipTests</arguments>
+                        </configuration>
                     </plugin>
                 </plugins>
             </build>
