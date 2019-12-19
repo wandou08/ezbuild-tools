@@ -131,7 +131,11 @@ public class TreeUtils {
         List<T> rootMenuLists = new ArrayList<>();
         for (T menuNode : menuList) {
             Integer parentId = (Integer) ReflectUtil.getFieldValue(menuNode, parentIdFieldName);
-            if (rootId.equals(parentId)) {
+            if (rootId == null) {
+                if (parentId == null || parentId == 0) {
+                    rootMenuLists.add(menuNode);
+                }
+            } else if (rootId.equals(parentId)) {
                 rootMenuLists.add(menuNode);
             }
         }

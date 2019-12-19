@@ -26,7 +26,7 @@ public class ToolsTests {
         menuList.add(Menu.builder().id(10).parentId(9).name("3-1-1").build());
         menuList.add(Menu.builder().id(11).parentId(9).name("3-1-2").build());
 
-        menuList = TreeUtils.buildTree(menuList, 3);
+        menuList = TreeUtils.buildTree(menuList, null);
 
         System.out.println(JSONUtil.toJsonPrettyStr(menuList));
     }
