@@ -4,7 +4,7 @@
 
     <groupId>cn.ezbuild</groupId>
     <artifactId>tools</artifactId>
-    <version>1.0.3.SNAPSHOT</version>
+    <version>1.0.3</version>
     <name>${project.artifactId}</name>
     <description>Java tools for every developer</description>
     <url>https://github.com/wandou08/tools</url>
@@ -102,7 +102,7 @@
         <connection>scm:git:${scm.trunk.url}</connection>
         <developerConnection>scm:git:${scm.trunk.url}</developerConnection>
         <url>git:${scm.trunk.url}</url>
-        <tag>tools-1.0.2</tag>
+        <tag>tools-1.0.3</tag>
     </scm>
 
     <developers>
