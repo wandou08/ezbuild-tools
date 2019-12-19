@@ -73,15 +73,8 @@ public class FtpUtils {
     }
 
     public static void main(String[] args) throws IOException {
-        @Cleanup FtpUtils ftpUtils = new FtpUtils("47.110.46.83", 22, "root", "Qin201001");
-
+        @Cleanup FtpUtils ftpUtils = new FtpUtils("xxxxxx", 22, "root", "xxxxxxx");
         ftpUtils.uploadPath("F:\\wandoupeas\\templates\\html\\meipaly\\files", "www.chinaqua.cn", "/www/wwwroot");
-//        listFileNames("47.110.46.83", 22, "root", "Qin201001", "/jar");
-
-//        Ftp ftp = new Ftp("47.110.46.83", 22, "root", "Qin201001");
-//        ftp.cd("/www/wwwroot");
-//        List<String> ls = ftp.ls("/www/wwwroot");
-//        ls.forEach(System.out::println);
     }
 
     private List<String> listFileNames(String host, int port, String username, final String password, String dir) {
