@@ -86,7 +86,6 @@ public class QiniuUtils {
      */
     public String uploadWithName(File file, String fileName, String domain, String accessKey, String secretKey, String bucket) throws FileNotFoundException {
         if (file != null) {
-            @Cleanup
             InputStream fileInputStream = new FileInputStream(file);
             Auth auth = Auth.create(accessKey, secretKey);
             String upToken = auth.uploadToken(bucket);
