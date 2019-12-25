@@ -21,7 +21,6 @@ import java.io.InputStream;
  *
  * @author wandoupeas
  * @version 0.0.1
- * @date 2019-12-25 14:20
  * @since 1.0.4
  */
 @UtilityClass
@@ -30,7 +29,7 @@ public class QiniuUtils {
     /**
      * 功能描述
      * <p>
-     *
+     * 获取token
      * </p>
      *
      * @param accessKey accessKey
@@ -38,7 +37,6 @@ public class QiniuUtils {
      * @param bucket bucket
      * @return java.lang.String
      * @author wandoupeas
-     * @date 2019-12-25 0025
      * @since 1.0.4
      */
     public String getToken(String accessKey, String secretKey, String bucket) {
@@ -58,9 +56,9 @@ public class QiniuUtils {
      * @param accessKey accessKey
      * @param secretKey secretKey
      * @param bucket bucket
+     * @throws FileNotFoundException fileNotFoundException
      * @return java.lang.String
      * @author wandoupeas
-     * @date 2019-11-20 0020
      * @since 1.0.4
      */
     public String upload(File file, String domain, String accessKey, String secretKey, String bucket) throws FileNotFoundException {
@@ -79,9 +77,9 @@ public class QiniuUtils {
      * @param accessKey accessKey
      * @param secretKey secretKey
      * @param bucket bucket
+     * @throws FileNotFoundException fileNotFoundException
      * @return java.lang.String
      * @author wandoupeas
-     * @date 2019-11-20 0020
      * @since 1.0.4
      */
     public String uploadWithName(File file, String fileName, String domain, String accessKey, String secretKey, String bucket) throws FileNotFoundException {
@@ -117,10 +115,9 @@ public class QiniuUtils {
      * @param bucket bucket
      * @return java.lang.String
      * @author wandoupeas
-     * @date 2019-11-20 0020
      * @since 1.0.4
      */
-    public String uploadWithName(InputStream fileInputStream, String fileName, String domain, String accessKey, String secretKey, String bucket) throws FileNotFoundException {
+    public String uploadWithName(InputStream fileInputStream, String fileName, String domain, String accessKey, String secretKey, String bucket) {
         if (fileInputStream != null) {
             Auth auth = Auth.create(accessKey, secretKey);
             String upToken = auth.uploadToken(bucket);
