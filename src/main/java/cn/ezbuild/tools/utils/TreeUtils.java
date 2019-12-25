@@ -33,7 +33,7 @@ public class TreeUtils {
      * 起始节点为父级id为0
      * </p>
      *
-     * <T>@param <T> 原数据类
+     * @param <T> 原数据类
      * @param menuList 需要格式化的list
      * @return java.util.List
      * @since 0.0.1
@@ -52,7 +52,7 @@ public class TreeUtils {
      * java.util.List<T> children 子集
      * </p>
      *
-     * <T>@param <T> 原数据类
+     * @param <T> 原数据类
      * @param menuList 需要格式化的list
      * @param rootId 顶级id
      * @return java.util.List
@@ -68,7 +68,7 @@ public class TreeUtils {
      * 建立树形结构
      * </p>
      *
-     * <T>@param <T> 原数据类
+     * @param <T> 原数据类
      * @param menuList 需要格式化的list
      * @param rootId 顶级id 默认 0
      * @param idFieldName 主键字段名 默认 id
@@ -92,13 +92,13 @@ public class TreeUtils {
      * 递归，建立子树形结构
      * </p>
      *
-     * <T>@param <T> 原数据类
+     * @param <T> 原数据类
      * @param pNode 父节点
      * @param menuList 需要格式化的list
      * @param idFieldName 主键字段名
      * @param parentIdFieldName 父级id字段名
      * @param childFieldName 子集合字段名
-     * @return T
+     * @return <T> t
      * @since 0.0.1
      */
     @SneakyThrows
@@ -125,7 +125,7 @@ public class TreeUtils {
      * 获取根节点
      * </p>
      *
-     * <T>@param <T> 原数据类
+     * @param <T> 原数据类
      * @param menuList 需格式化的list
      * @param parentIdFieldName 父级id字段
      * @param rootId 设置顶级id
