@@ -98,7 +98,7 @@ public class TreeUtils {
      * @param idFieldName 主键字段名
      * @param parentIdFieldName 父级id字段名
      * @param childFieldName 子集合字段名
-     * @return <T> t
+     * @return T t
      * @since 0.0.1
      */
     @SneakyThrows
