@@ -29,7 +29,7 @@ public class TreeUtils {
      * 默认 list 内的属性关系为
      * Integer id 主键
      * Integer parentId 关联父级id
-     * java.util.List<T> children 子集
+     * java.util.List children 子集
      * 起始节点为父级id为0
      * </p>
      *
@@ -49,7 +49,7 @@ public class TreeUtils {
      * 默认 list 内的属性关系为
      * Integer id 主键
      * Integer parentId 关联父级id
-     * java.util.List<T> children 子集
+     * java.util.List children 子集
      * </p>
      *
      * @param <T> 原数据类
