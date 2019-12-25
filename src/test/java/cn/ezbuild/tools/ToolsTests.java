@@ -1,18 +1,22 @@
 package cn.ezbuild.tools;
 
 import cn.ezbuild.tools.entity.Menu;
+import cn.ezbuild.tools.utils.QiniuUtils;
 import cn.ezbuild.tools.utils.TreeUtils;
+import cn.hutool.core.io.FileUtil;
 import cn.hutool.json.JSONUtil;
+import lombok.SneakyThrows;
 import org.junit.Test;
 
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ToolsTests {
 
     @Test
-    public void test() {
+    public void testTree() {
         List<Menu> menuList = new ArrayList<>();
         menuList.add(Menu.builder().id(1).parentId(0).name("1").build());
         menuList.add(Menu.builder().id(2).parentId(0).name("2").build());
@@ -29,6 +33,23 @@ public class ToolsTests {
         menuList = TreeUtils.buildTree(menuList, null);
 
         System.out.println(JSONUtil.toJsonPrettyStr(menuList));
+    }
+
+    @Test
+    @SneakyThrows
+    public void testQiniu() {
+//        File file = FileUtil.newFile("xxx.jpg");
+//        System.out.println(QiniuUtils.upload(file,
+//                                             "xxx",
+//                                             "xxx",
+//                                             "xxx",
+//                                             "xxx"));
+//        System.out.println(QiniuUtils.uploadWithName(file,
+//                                             "xxx.jpg",
+//                                             "xxx",
+//                                             "xxx",
+//                                             "xx",
+//                                             "xx"));
     }
 
 }
