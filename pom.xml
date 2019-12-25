@@ -230,7 +230,6 @@
                             <tagNameFormat>v@{project.version}</tagNameFormat>
                             <generateReleasePoms>false</generateReleasePoms>
                             <arguments>-DskipTests</arguments>
-                            <goals>-f pom.xml deploy -P release</goals>
                         </configuration>
                     </plugin>
                 </plugins>
