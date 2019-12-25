@@ -86,7 +86,43 @@ public class QiniuUtils {
      */
     public String uploadWithName(File file, String fileName, String domain, String accessKey, String secretKey, String bucket) throws FileNotFoundException {
         if (file != null) {
+            @Cleanup
             InputStream fileInputStream = new FileInputStream(file);
+            Auth auth = Auth.create(accessKey, secretKey);
+            String upToken = auth.uploadToken(bucket);
+            Configuration cfg = new Configuration();
+            UploadManager uploadManager = new UploadManager(cfg);
+            try {
+                @Cleanup
+                Response response = uploadManager.put(fileInputStream, fileName, upToken, null, null);
+                DefaultPutRet putRet = new Gson().fromJson(response.bodyString(), DefaultPutRet.class);
+                return domain + "/" + putRet.key;
+            } catch (QiniuException e) {
+                e.printStackTrace();
+            }
+        }
+        return "fail";
+    }
+
+    /**
+     * 功能描述
+     * <p>
+     *    上传文件
+     * </p>
+     *
+     * @param fileInputStream 文件流
+     * @param fileName 文件名
+     * @param domain 域名
+     * @param accessKey accessKey
+     * @param secretKey secretKey
+     * @param bucket bucket
+     * @return java.lang.String
+     * @author wandoupeas
+     * @date 2019-11-20 0020
+     * @since 1.0.4
+     */
+    public String uploadWithName(InputStream fileInputStream, String fileName, String domain, String accessKey, String secretKey, String bucket) throws FileNotFoundException {
+        if (fileInputStream != null) {
             Auth auth = Auth.create(accessKey, secretKey);
             String upToken = auth.uploadToken(bucket);
             Configuration cfg = new Configuration();

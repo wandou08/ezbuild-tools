@@ -4,7 +4,7 @@
 
     <groupId>cn.ezbuild</groupId>
     <artifactId>tools</artifactId>
-    <version>1.0.4.SNAPSHOT</version>
+    <version>1.1.0</version>
     <name>${project.artifactId}</name>
     <description>Java tools for every developer</description>
     <url>https://github.com/wandou08/tools</url>
@@ -28,7 +28,6 @@
         <lombok.version>1.18.10</lombok.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <scm.trunk.url>https://github.com/wandou08/tools.git</scm.trunk.url>
-        <spring-boot.version>2.2.1.RELEASE</spring-boot.version>
     </properties>
 
     <dependencies>
