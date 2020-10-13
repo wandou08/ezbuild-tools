@@ -23,7 +23,7 @@
         <java.version>1.8</java.version>
         <javax.servlet-api.version>4.0.1</javax.servlet-api.version>
         <jsch.version>0.1.55</jsch.version>
-        <junit.version>4.12</junit.version>
+        <junit.version>4.13.1</junit.version>
         <lombok.version>1.18.10</lombok.version>
     </properties>
 
