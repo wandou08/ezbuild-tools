@@ -12,7 +12,7 @@
 
     <properties>
         <commons-fileupload.version>1.4</commons-fileupload.version>
-        <commons-net.version>3.6</commons-net.version>
+        <commons-net.version>3.9.0</commons-net.version>
         <fastjson.version>1.2.60</fastjson.version>
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
